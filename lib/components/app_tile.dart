@@ -19,7 +19,7 @@ class MOTile extends StatelessWidget {
       padding: EdgeInsets.symmetric(vertical: 8.0),
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: Color(0xff202020),
           boxShadow: [
             BoxShadow(
               offset: Offset(0.00, 3.00),
@@ -29,7 +29,6 @@ class MOTile extends StatelessWidget {
           ],
         ),
         child: ListTile(
-          dense: true,
           title: Text(
             this.title,
             style: AppFonts.nunitoBold(

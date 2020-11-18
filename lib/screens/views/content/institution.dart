@@ -2,14 +2,28 @@ import 'package:flutter/material.dart';
 import 'package:mateop_admin/components/app_tile.dart';
 import 'package:mateop_admin/components/statistic.dart';
 import 'package:mateop_admin/constants/colors.dart';
+import 'package:mateop_admin/constants/enums.dart';
 import 'package:mateop_admin/constants/text_style.dart';
+import 'package:mateop_admin/provider/state.dart';
+import 'package:provider/provider.dart';
 
 class InstitutionView extends StatefulWidget {
+  final List courses;
+
+  const InstitutionView({Key key, @required this.courses}) : super(key: key);
   @override
   _ViewState createState() => _ViewState();
 }
 
 class _ViewState extends State<InstitutionView> {
+  StaffProvider _provider;
+
+  @override
+  void initState() {
+    super.initState();
+    _provider = Provider.of<StaffProvider>(context, listen: false);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -21,9 +35,10 @@ class _ViewState extends State<InstitutionView> {
             alignment: Alignment.center,
             children: [
               Text(
-                "Nombre de la institución",
+                _provider.institution['name'],
                 style: AppFonts.nunitoBold(
                   fontSize: 20,
+                  color: Color(0xff3d85d7),
                 ),
               ),
               Align(
@@ -41,9 +56,15 @@ class _ViewState extends State<InstitutionView> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Statistic(title: 'Q1:', value: '#%'),
-              Statistic(title: 'Q2:', value: '#%'),
-              Statistic(title: 'Q3:', value: '#%'),
+              Statistic(
+                  title: 'Q1:',
+                  value: '${(_provider.institution['q1'] * 100).round()}%'),
+              Statistic(
+                  title: 'Q2:',
+                  value: '${(_provider.institution['q2'] * 100).round()}%'),
+              Statistic(
+                  title: 'Q3:',
+                  value: '${(_provider.institution['q3'] * 100).round()}%'),
             ],
           ),
           SizedBox(
@@ -52,7 +73,9 @@ class _ViewState extends State<InstitutionView> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Statistic(title: 'Promedio:', value: '#%'),
+              Statistic(
+                  title: 'Promedio:',
+                  value: '${(_provider.institution['mean'] * 100).round()}%'),
             ],
           ),
           SizedBox(
@@ -65,26 +88,33 @@ class _ViewState extends State<InstitutionView> {
                   "Cursos",
                   style: AppFonts.nunitoBold(
                     fontSize: 18,
+                    color: Color(0xff3d85d7),
                   ),
                 ),
               ),
               IconButton(
                 icon: Icon(
                   Icons.add_circle_outline,
+                  color: Color(0xff3d85d7),
                 ),
                 onPressed: () {},
               )
             ],
           ),
           Expanded(
-            child: ListView(
-              children: [
-                MOTile(
-                  title: 'Cuarto A',
-                  subtitle: '32 Estudiantes',
-                  onTap: () {},
-                )
-              ],
+            child: ListView.builder(
+              itemBuilder: (BuildContext context, int index) {
+                Map course = widget.courses[index];
+                return MOTile(
+                  title: '${course['gradeText']} ${course['tag']}',
+                  subtitle: '${course['grade']}-${course['tag']}',
+                  onTap: () {
+                    _provider.setCourse(course);
+                    _provider.updateScreen(MainRouteContent.teacher);
+                  },
+                );
+              },
+              itemCount: widget.courses.length,
             ),
           ),
         ],

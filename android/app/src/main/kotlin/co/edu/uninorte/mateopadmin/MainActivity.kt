@@ -1,4 +1,4 @@
-package com.example.mateop_admin
+package co.edu.uninorte.mateopadmin
 
 import io.flutter.embedding.android.FlutterActivity
 

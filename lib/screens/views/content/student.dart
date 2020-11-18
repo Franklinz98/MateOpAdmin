@@ -14,6 +14,7 @@ class StudentDetails extends StatelessWidget {
             textAlign: TextAlign.center,
             style: AppFonts.nunitoBold(
               fontSize: 20,
+              color: Color(0xff3d85d7),
             ),
           ),
           SizedBox(
@@ -31,6 +32,7 @@ class StudentDetails extends StatelessWidget {
             textAlign: TextAlign.center,
             style: AppFonts.nunitoBold(
               fontSize: 16,
+              color: Color(0xff3d85d7),
             ),
           ),
           SizedBox(
@@ -48,6 +50,7 @@ class StudentDetails extends StatelessWidget {
             textAlign: TextAlign.center,
             style: AppFonts.nunitoBold(
               fontSize: 16,
+              color: Color(0xff3d85d7),
             ),
           ),
           SizedBox(
@@ -68,6 +71,7 @@ class StudentDetails extends StatelessWidget {
                       "Edad",
                       style: AppFonts.nunitoBold(
                         fontSize: 16,
+                        color: Color(0xff3d85d7),
                       ),
                     ),
                   ],
@@ -86,6 +90,7 @@ class StudentDetails extends StatelessWidget {
                       "Curso",
                       style: AppFonts.nunitoBold(
                         fontSize: 16,
+                        color: Color(0xff3d85d7),
                       ),
                     ),
                   ],
@@ -107,6 +112,7 @@ class StudentDetails extends StatelessWidget {
                     '#',
                     style: AppFonts.nunitoBold(
                       fontSize: 18,
+                      color: Color(0xff3d85d7),
                     ),
                   ),
                 ),
@@ -115,6 +121,7 @@ class StudentDetails extends StatelessWidget {
                     'O.A.',
                     style: AppFonts.nunitoBold(
                       fontSize: 18,
+                      color: Color(0xff3d85d7),
                     ),
                   ),
                 ),
@@ -123,6 +130,7 @@ class StudentDetails extends StatelessWidget {
                     'Dificultad',
                     style: AppFonts.nunitoBold(
                       fontSize: 18,
+                      color: Color(0xff3d85d7),
                     ),
                   ),
                 ),
@@ -131,6 +139,7 @@ class StudentDetails extends StatelessWidget {
                     'Tiempo',
                     style: AppFonts.nunitoBold(
                       fontSize: 18,
+                      color: Color(0xff3d85d7),
                     ),
                   ),
                 ),
@@ -139,6 +148,7 @@ class StudentDetails extends StatelessWidget {
                     'Resultado',
                     style: AppFonts.nunitoBold(
                       fontSize: 18,
+                      color: Color(0xff3d85d7),
                     ),
                   ),
                 ),
